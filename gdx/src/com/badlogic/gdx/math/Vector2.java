@@ -112,10 +112,13 @@ public class Vector2 implements Serializable, Vector<Vector2> {
 
 	@Override
 	public Vector2 nor () {
-		float len = len();
-		if (len != 0) {
-			x /= len;
-			y /= len;
+		final float len2 = len2();
+		if(Math.abs(len2 - 1) > MathUtils.FLOAT_ROUNDING_ERROR){
+			float len = len();
+			if (len != 0) {
+				x /= len;
+				y /= len;
+			}
 		}
 		return this;
 	}
